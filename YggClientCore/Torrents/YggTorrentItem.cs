@@ -1,4 +1,4 @@
-﻿namespace YggClientCore
+﻿namespace YggClientCore.Torrents
 {
     public class YggTorrentItem
     {
@@ -8,7 +8,7 @@
         public string UrlUploader { get; set; }
         public int Comments { get; set; }
         public string UploadedBy { get; set; }
-        
+
 
         public int TorrentId { get; set; }
 
