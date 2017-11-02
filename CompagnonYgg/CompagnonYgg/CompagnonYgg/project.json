@@ -1,0 +1,19 @@
+﻿{
+  "supports": {},
+  "dependencies": {
+    "Autofac": "4.6.2",
+    "HtmlAgilityPack": "1.6.3",
+    "Microsoft.Azure.Mobile": "0.14.0",
+    "Microsoft.Azure.Mobile.Analytics": "0.14.0",
+    "Microsoft.Azure.Mobile.Crashes": "0.14.0",
+    "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
+    "modernhttpclient": "2.4.2",
+    "NETStandard.Library": "2.0.1",
+    "Xamarin.Forms": "2.5.0.19271-pre2"
+  },
+  "frameworks": {
+    "netstandard1.4": {
+      "imports": "portable-net45+win8+wp8+wpa81"
+    }
+  }
+}
