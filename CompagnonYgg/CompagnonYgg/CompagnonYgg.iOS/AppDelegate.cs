@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿using CompagnonYgg.Core;
 using Foundation;
 using UIKit;
 
@@ -23,6 +20,10 @@ namespace CompagnonYgg.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            CoreSetup.SetupContainer(new Setup());
+            //AppContainer.Container.Resolve<IDatabase>().Initialize();
+
             LoadApplication(new Core.App());
 
             return base.FinishedLaunching(app, options);

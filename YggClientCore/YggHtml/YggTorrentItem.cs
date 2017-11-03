@@ -1,4 +1,4 @@
-﻿namespace YggClientCore.Torrents
+﻿namespace YggClientCore.YggHtml
 {
     public class YggTorrentItem
     {

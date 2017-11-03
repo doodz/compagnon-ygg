@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using YggClientCore.Global;
 using YggClientCore.Search;
-using YggClientCore.Torrents;
+using YggClientCore.YggHtml;
 
 namespace YggClientCore
 {
@@ -46,8 +46,20 @@ namespace YggClientCore
             var doc = new HtmlDocument();
             doc.LoadHtml(html);
             _islogged = YggHtmlParser.IsConnected(doc);
+            if (_islogged)
+                YggHtmlParser.GetRatio(doc);
         }
 
+        public async Task Account()
+        {
+
+            var html = await DownloadPageAsync(GlobalLocal.YggAccount);
+            var doc = new HtmlDocument();
+            doc.LoadHtml(html);
+            _islogged = YggHtmlParser.IsConnected(doc);
+            if (_islogged)
+                YggHtmlParser.GetUserAccount(doc);
+        }
 
         public async Task<IEnumerable<YggTorrentItem>> Seach(string seachStr)
         {

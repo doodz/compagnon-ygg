@@ -1,4 +1,7 @@
-﻿using CompagnonYgg.Core.Views.WelcomeStartPage;
+﻿using Autofac;
+using CompagnonYgg.Core.Services;
+using CompagnonYgg.Core.Views.WelcomeStartPage;
+using Doods.StdFramework.ApplicationObjects;
 using Xamarin.Forms;
 
 namespace CompagnonYgg.Core
@@ -9,12 +12,12 @@ namespace CompagnonYgg.Core
         public App()
         {
             InitializeComponent();
-            FirstLogin();
+            HomePage();
         }
 
         protected async override void OnStart()
         {
-
+            base.OnStart();
             //MobileCenter.Start("ios={a1180a5d-28a0-4ea3-9eda-7b2aa8d4cba3};android={e3bb5908-01c3-4286-811f-b07537a6a632};uwp={4fb715f8-a0ed-46ce-8ac8-9785a6ca11e4}", typeof(Analytics), typeof(Crashes));
             //await Analytics.SetEnabledAsync(true);
             //await Crashes.SetEnabledAsync(true);
@@ -24,6 +27,13 @@ namespace CompagnonYgg.Core
             //MessagingCenter.Subscribe<object, Exception>(this, Messages.ExceptionOccurred, OnAppExceptionOccurred);
 
             // Handle when your app starts
+        }
+
+        private void HomePage()
+        {
+            var navigationService = AppContainer.Container.Resolve<INavigationService>();
+            MainPage = navigationService.GetRootPage();
+            navigationService.Navigation = MainPage.Navigation;
         }
 
         private void FirstLogin()

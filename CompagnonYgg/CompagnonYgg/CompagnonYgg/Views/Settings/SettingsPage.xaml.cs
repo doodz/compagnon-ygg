@@ -11,5 +11,7 @@ namespace CompagnonYgg.Core.Views.Settings
         {
             InitializeComponent();
         }
+
+
     }
 }

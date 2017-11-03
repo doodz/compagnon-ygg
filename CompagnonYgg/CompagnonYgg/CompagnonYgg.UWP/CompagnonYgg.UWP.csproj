@@ -96,10 +96,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\FileHelper.cs" />
+    <Compile Include="Services\Logger.cs" />
+    <Compile Include="Setup.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -152,6 +156,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\AppSshForm\Doods.StdFramework\Doods.StdFramework.Core.csproj">
+      <Project>{e0e74a7b-2314-49ff-b002-86f2bd3c0fed}</Project>
+      <Name>Doods.StdFramework.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CompagnonYgg\CompagnonYgg.Core.csproj">
       <Project>{48BA715F-6EA8-4CA6-9702-689C343C313A}</Project>
       <Name>CompagnonYgg.Core</Name>

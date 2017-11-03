@@ -3,6 +3,8 @@
     "HtmlAgilityPack": "1.6.3",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.4",
     "modernhttpclient": "2.4.2",
+    "PCLStorage": "1.0.2",
+    "Rg.Plugins.Popup": "1.1.0-pre3",
     "Xamarin.Forms": "2.5.0.19271-pre2"
   },
   "frameworks": {

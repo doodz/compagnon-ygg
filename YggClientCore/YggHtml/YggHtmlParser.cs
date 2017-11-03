@@ -1,12 +1,13 @@
 ﻿using HtmlAgilityPack;
 using System;
+using System.Globalization;
 using System.Linq;
+using YggClientCore.User;
 
-namespace YggClientCore.Torrents
+namespace YggClientCore.YggHtml
 {
     public class YggHtmlParser
     {
-
         /// <summary>
         /// 
         /// </summary>
@@ -27,7 +28,7 @@ namespace YggClientCore.Torrents
         ///0
         ///0
         /// </example>
-        public static void InfoFromInnerText(YggTorrentItem torrent, string innerText)
+        private static void InfoTorrentFromInnerText(YggTorrentItem torrent, string innerText)
         {
             var i = 0;
             var txt = innerText.Split(new[] { '\n', }, StringSplitOptions.RemoveEmptyEntries);
@@ -43,14 +44,12 @@ namespace YggClientCore.Torrents
             torrent.Size = txt[i++];
             torrent.Seeders = int.Parse(txt[i++]);
             torrent.Leechers = int.Parse(txt[i]);
-
         }
 
         public static YggTorrentItem ParseTorrentHtml(HtmlNode torrentNode)
         {
-
             var item = new YggTorrentItem();
-            InfoFromInnerText(item, torrentNode.InnerText);
+            InfoTorrentFromInnerText(item, torrentNode.InnerText);
             GetValueFromANodes(item, torrentNode);
 
             return item;
@@ -83,8 +82,61 @@ namespace YggClientCore.Torrents
             var link = doc.DocumentNode.SelectSingleNode("//a[@href='https://yggtorrent.com/user/login']");
 
             return link == null;
-            //var links = doc.DocumentNode.SelectNodes("//a[@href]");
-            //return links.All(l => l.InnerText != "Connexion");
+        }
+
+        public static UserRatio GetRatio(HtmlDocument doc)
+        {
+            var nodes = doc.DocumentNode.SelectNodes("//li[@class='submenu open']");
+            var node = nodes.FirstOrDefault(n => n.InnerText.Contains("Ratio"));
+
+            if (node == null) return null;
+
+            var userRation = new UserRatio();
+            var split = node.InnerText.Split(new[] { '\n', }, StringSplitOptions.RemoveEmptyEntries);
+
+
+            var infosplit = split[0].Split(new[] { ' ', }, StringSplitOptions.RemoveEmptyEntries);
+            userRation.Ration = double.Parse(infosplit[2], CultureInfo.InvariantCulture);
+            userRation.Up = infosplit[3];
+
+            userRation.Down = split[1];
+            userRation.Actif = split[2].Contains("Actif");
+
+            return userRation;
+
+        }
+
+
+        public static UserAccount GetUserAccount(HtmlDocument doc)
+        {
+
+            var userAccount = new UserAccount();
+
+            var avatarNode = doc.DocumentNode.SelectSingleNode("//img[@alt='User avatar']");
+
+            if (avatarNode != null)
+            {
+                var src = avatarNode.Attributes.FirstOrDefault(attri => attri.Name == "src");
+                userAccount.Avatar = src?.Value;
+            }
+
+            //var bNodes = doc.DocumentNode.SelectNodes("//b']");
+            //var tableNodes = doc.DocumentNode.SelectNodes("//table//tbody']");
+
+            var node = doc.DocumentNode.SelectSingleNode("//div[@class='box-active']");
+            var split = node.InnerText.Split(new[] { '\n', }, StringSplitOptions.RemoveEmptyEntries);
+
+
+            userAccount.Pseudo = split[1];
+            userAccount.Rank = split[3];
+            userAccount.RegistrationDate = split[5];
+            userAccount.Torrents = split[7];
+            userAccount.Comments = split[9];
+            userAccount.Reputation = split[11];
+
+
+            return userAccount;
+
         }
     }
 }

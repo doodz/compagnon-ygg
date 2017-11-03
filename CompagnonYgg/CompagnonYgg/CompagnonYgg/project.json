@@ -9,6 +9,8 @@
     "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
     "modernhttpclient": "2.4.2",
     "NETStandard.Library": "2.0.1",
+    "PCLStorage": "1.0.2",
+    "Rg.Plugins.Popup": "1.1.0-pre3",
     "Xamarin.Forms": "2.5.0.19271-pre2"
   },
   "frameworks": {
