@@ -3,8 +3,8 @@ using CompagnonYgg.Core.Views.Settings;
 using CompagnonYgg.Core.Views.WelcomeStartPage;
 using Doods.StdFramework.Navigation;
 using System.Threading.Tasks;
-using CompagnonYgg.Core.Views.NewFolder1;
 using Xamarin.Forms;
+using HomeMasterDetailPage = CompagnonYgg.Core.Views.Home.HomeMasterDetailPage;
 
 namespace CompagnonYgg.Core.Services
 {

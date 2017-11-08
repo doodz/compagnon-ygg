@@ -12,7 +12,7 @@ namespace CompagnonYgg.Core.Views.Settings
         public ObservableRangeCollection<AboutMenuItem> AboutItems { get; } = new ObservableRangeCollection<AboutMenuItem>();
         public ObservableRangeCollection<AboutMenuItem> TechnologyItems { get; } = new ObservableRangeCollection<AboutMenuItem>();
 
-        protected AboutPageViewModel(ILogger logger) : base(logger)
+        public AboutPageViewModel(ILogger logger) : base(logger)
         {
             AboutItems.AddRange(new[]
               {

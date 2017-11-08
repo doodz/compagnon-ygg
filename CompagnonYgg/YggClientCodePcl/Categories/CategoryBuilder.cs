@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace YggClientCore.Categories
+namespace YggClientCodePcl.Categories
 {
     public class CategoryBuilder
     {

@@ -50,16 +50,17 @@
     </Compile>
     <Compile Include="Views\About\AboutMenuItem.cs" />
     <Compile Include="Views\About\AboutPageViewModel.cs" />
-    <Compile Include="Views\NewFolder1\HomeMasterDetailPage.xaml.cs">
+    <Compile Include="Views\Home\HomeMasterDetailPage.xaml.cs">
       <DependentUpon>HomeMasterDetailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewFolder1\HomeMasterDetailPageDetail.xaml.cs">
+    <Compile Include="Views\Home\HomeMasterDetailPageDetail.xaml.cs">
       <DependentUpon>HomeMasterDetailPageDetail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewFolder1\HomeMasterDetailPageMaster.xaml.cs">
+    <Compile Include="Views\Home\HomeMasterDetailPageMaster.xaml.cs">
       <DependentUpon>HomeMasterDetailPageMaster.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewFolder1\HomeMasterDetailPageMenuItem.cs" />
+    <Compile Include="Views\Home\HomeMasterDetailPageMenuItem.cs" />
+    <Compile Include="Views\Home\HomeMasterDetailPageMasterViewModel2.cs" />
     <Compile Include="Views\Settings\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
@@ -80,6 +81,10 @@
     <ProjectReference Include="..\..\..\..\AppSshForm\Doods.StdRepository\Doods.StdRepository.csproj">
       <Project>{13f126e6-ab09-4aac-871e-5bc9b48e3e22}</Project>
       <Name>Doods.StdRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YggClientCodePcl\YggClientCodePcl.csproj">
+      <Project>{171c0a9f-e509-47d1-a0fb-eadba89222d8}</Project>
+      <Name>YggClientCodePcl</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -112,19 +117,19 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\NewFolder1\HomeMasterDetailPage.xaml">
+    <EmbeddedResource Include="Views\Home\HomeMasterDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\NewFolder1\HomeMasterDetailPageMaster.xaml">
+    <EmbeddedResource Include="Views\Home\HomeMasterDetailPageMaster.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\NewFolder1\HomeMasterDetailPageDetail.xaml">
+    <EmbeddedResource Include="Views\Home\HomeMasterDetailPageDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

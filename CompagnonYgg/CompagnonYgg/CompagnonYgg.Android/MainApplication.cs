@@ -4,7 +4,11 @@ using Android.Runtime;
 using Android.Util;
 using CompagnonYgg.Core;
 using System;
+using Android;
 
+[assembly: UsesPermission(Manifest.Permission.Internet)]
+[assembly: UsesPermission(Manifest.Permission.WakeLock)]
+[assembly: UsesPermission(Manifest.Permission.ReceiveBootCompleted)]
 namespace CompagnonYgg.Droid
 {
     [Application(Label = "@string/app_name", Icon = "@drawable/ic_launcher", Theme = "@style/MainTheme")]

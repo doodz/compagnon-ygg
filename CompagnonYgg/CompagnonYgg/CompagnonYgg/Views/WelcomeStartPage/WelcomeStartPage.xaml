@@ -1,10 +1,97 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CompagnonYgg.Core.Views.WelcomeStartPage.WelcomeStartPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+<mvvm:ViewPage x:TypeArguments="welcomeStartPage:WelcomeStartPageViewModel"
+               xmlns="http://xamarin.com/schemas/2014/forms"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:mvvm="clr-namespace:Doods.StdFramework.Mvvm;assembly=Doods.StdFramework"
+               xmlns:welcomeStartPage="clr-namespace:CompagnonYgg.Core.Views.WelcomeStartPage;assembly=CompagnonYgg.Core"
+               xmlns:views="clr-namespace:Doods.StdFramework.Views;assembly=Doods.StdFramework"
+               x:Class="CompagnonYgg.Core.Views.WelcomeStartPage.WelcomeStartPage">
+    <views:AlwaysScrollView>
+        <views:CardView VerticalOptions="FillAndExpand">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Frame Grid.Row="0">
+                    <Grid BindingContext="{Binding SystemInfo,Mode=OneWay}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0"
+                               Grid.Column="0"
+                               Text="Freeleech" />
+                        <Label Grid.Row="1"
+                               Grid.Column="0"
+                               Text="Ratio" />
+                        <Label Grid.Row="2"
+                               Grid.Column="0"
+                               Text="Up" />
+                        <Label Grid.Row="3"
+                               Grid.Column="0"
+                               Text="Down" />
+                        <Label Grid.Row="4"
+                               Grid.Column="0"
+                               Text="Etat du compte" />
+
+
+                        <Label Grid.Row="0"
+                               Grid.Column="1"
+                               HorizontalOptions="EndAndExpand"
+                               Text="{Binding Path=Freeleech.Value.Value,Mode=OneWay}" />
+                        <Label Grid.Row="1"
+                               Grid.Column="1"
+                               HorizontalOptions="EndAndExpand"
+                               Text="{Binding Ratio,Mode=OneWay}" />
+                        <Label Grid.Row="2"
+                               Grid.Column="1"
+                               HorizontalOptions="EndAndExpand"
+                               Text="{Binding Up,Mode=OneWay}" />
+                        <Label Grid.Row="3"
+                               Grid.Column="1"
+                               HorizontalOptions="EndAndExpand"
+                               Text="{Binding Down,Mode=OneWay}" />
+                        <Label Grid.Row="4"
+                               Grid.Column="1"
+                               HorizontalOptions="EndAndExpand"
+                               Text="{Binding State,Mode=OneWay}" />
+
+                    </Grid>
+                </Frame>
+
+
+                <Frame Grid.Row="1">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <views:DoodsEntry Text="{Binding SeachText,Mode=TwoWay}" />
+                        <views:DoodsButton Command="{Binding SearchCmd,Mode=OneWay}"  Text="Rechercher"/>
+                        <Label Text="Catégories" />
+                        <Picker Title="Catégories"
+                                ItemDisplayBinding="{Binding Name,Mode=OneWay}"
+                                ItemsSource="{Binding Categories,Mode=OneWay}"
+                                SelectedItem="{Binding SelectedCategorie,Mode=TwoWay}"/>
+                        <Label Text="Sous-catégories" />
+                        <Picker Title="Sous-catégories"
+                                ItemDisplayBinding="{Binding Name,Mode=OneWay}"
+                                ItemsSource="{Binding SubCategories,Mode= OneWay}"
+                                SelectedItem="{Binding SelectedSubCategories,Mode=TwoWay}" />
+                    </StackLayout>
+                </Frame>
+
+
+                <views:FooterDivider Grid.Row="2" />
+            </Grid>
+        </views:CardView>
+    </views:AlwaysScrollView>
+</mvvm:ViewPage>

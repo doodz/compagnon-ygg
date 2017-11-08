@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<mvvm:ViewPage x:TypeArguments="Home:HomeMasterDetailPageMasterViewModel2" xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CompagnonYgg.Core.Views.NewFolder1.HomeMasterDetailPageMaster"
+             xmlns:mvvm="clr-namespace:Doods.StdFramework.Mvvm;assembly=Doods.StdFramework"
+             xmlns:Home="clr-namespace:CompagnonYgg.Core.Views.Home;assembly=CompagnonYgg.Core"
+             x:Class="CompagnonYgg.Core.Views.Home.HomeMasterDetailPageMaster"
              Title="Master">
   <StackLayout>
     <ListView x:Name="MenuItemsListView"
@@ -42,4 +44,4 @@
       </ListView.ItemTemplate>
     </ListView>
   </StackLayout>
-</ContentPage>
+</mvvm:ViewPage>

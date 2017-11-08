@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvvm:BaseMasterDetailPage x:TypeArguments="home:HomeMasterDetailPageMenuItem" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CompagnonYgg.Core.Views.Home.HomeMasterDetailPage"
+             xmlns:mvvm="clr-namespace:Doods.StdFramework.Mvvm;assembly=Doods.StdFramework"
+             xmlns:home="clr-namespace:CompagnonYgg.Core.Views.Home;assembly=CompagnonYgg.Core">
+  <MasterDetailPage.Master>
+    <home:HomeMasterDetailPageMaster x:Name="MasterPage" />
+  </MasterDetailPage.Master>
+  <MasterDetailPage.Detail>
+    <NavigationPage>
+      <x:Arguments>
+        <home:HomeMasterDetailPageDetail />
+      </x:Arguments>
+    </NavigationPage>
+  </MasterDetailPage.Detail>
+</mvvm:BaseMasterDetailPage>

@@ -22,18 +22,13 @@
                                         WinPhone="true" />
                         </views:CardView.IsVisible>
                         <StackLayout Spacing="0">
-                            <views:LabelSection Text="About" />
+                            <views:LabelSection Text="A propos" />
                             <views:HeaderDivider />
                             <StackLayout BackgroundColor="White"
                                          Padding="{StaticResource StandardPadding}">
-                                <Label Text="AppSshForm is an app who manage rpi updates and show information like ram free and cpu temps.
-You can also unmount devices if you are root and stop process.
-AppSshForm is multi platform you can get it on :
-    -Android Market
-    
-    -windows store
-    
-    -apple store (soon)
+                                <Label Text="Compagnon YGG est un client pour YggTorrent. Il permet de télécharger les torrents sur son mobile, 
+d'utiliser un widget pour voir son ratio et être averti des Freeleech.
+L'application est plus ou moins longue à démarrer sous Android car elle utilise la technologie Xamarin (pour être multi plateforme Windows, Ios et Android). 
 "
                                        HorizontalOptions="Center"
                                        Style="{DynamicResource EvolveListItemDetailTextStyle}" />
@@ -71,9 +66,9 @@ AppSshForm is multi platform you can get it on :
                             <views:LabelSection>
                                 <views:LabelSection.Text>
                                     <OnPlatform x:TypeArguments="x:String"
-                                                Android="About the App"
+                                                Android="A propos de l'application"
                                                 iOS=" "
-                                                WinPhone="About the App" />
+                                                WinPhone="A propos de l'application" />
                                 </views:LabelSection.Text>
                             </views:LabelSection>
                             <views:HeaderDivider />
@@ -100,7 +95,7 @@ AppSshForm is multi platform you can get it on :
 
                     <views:CardView>
                         <StackLayout Spacing="0">
-                            <views:LabelSection Text="Technology Used" />
+                            <views:LabelSection Text="Technologies utilisées" />
                             <views:HeaderDivider />
                             <views:NonScrollableListView x:Name="ListViewTechnology"
                                                          ItemsSource="{Binding TechnologyItems}"
@@ -124,15 +119,15 @@ AppSshForm is multi platform you can get it on :
                     </views:CardView>
                     <views:CardView>
                         <StackLayout Spacing="0">
-                            <views:LabelSection Text="Credits and Issues" />
+                            <views:LabelSection Text="Credits et Issues" />
                             <views:HeaderDivider />
                             <views:DoodsButton Text="Credits"
                                                Clicked="OnTapGestureRecognizerTapped" />
-                            <Label Text="You want report a bug or ask a new features, please use GitHub issues :"
+                            <Label Text="Vous voulez signaler un bug ou demander une nouvelle fonctionnalité, veuillez utiliser la page de GitHub Issues:"
                                    Style="{DynamicResource EvolveListItemDetailTextStyle}" />
-                            <views:DoodsButton Text="Go on github issues"
+                            <views:DoodsButton Text="Aller sur  github issues"
                                                Command="{Binding Path=LaunchBrowserCommand}"
-                                               CommandParameter="https://github.com/doodz/AppSshForm/issues" />
+                                               CommandParameter="https://github.com/doodz/compagnon-ygg/issues" />
                         </StackLayout>
                     </views:CardView>
 

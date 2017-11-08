@@ -1,21 +1,16 @@
-﻿using CompagnonYgg.Core.Services;
-using Xamarin.Forms;
+﻿using Doods.StdFramework.Mvvm;
 using Xamarin.Forms.Xaml;
 
 namespace CompagnonYgg.Core.Views.WelcomeStartPage
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class WelcomeStartPage : ContentPage
+    public partial class WelcomeStartPage : ViewPage<WelcomeStartPageViewModel>
     {
         public WelcomeStartPage()
         {
             InitializeComponent();
 
-            var test = new YggClient();
-            var home = test.Home().Result;
 
-            var parseur = new HtmlParseur();
-            var row = parseur.Pars(home);
 
         }
 
